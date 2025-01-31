@@ -12,11 +12,11 @@ public class TextConverterPlugin extends Plugin {
     private TextConverter implementation = new TextConverter();
 
     @PluginMethod
-    public void echo(PluginCall call) {
+    public void convert(PluginCall call) {
         String value = call.getString("value");
 
         JSObject ret = new JSObject();
-        ret.put("value", implementation.echo(value));
+        ret.put("value", implementation.convert(value));
         call.resolve(ret);
     }
 }

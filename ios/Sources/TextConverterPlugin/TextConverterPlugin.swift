@@ -10,14 +10,14 @@ public class TextConverterPlugin: CAPPlugin, CAPBridgedPlugin {
     public let identifier = "TextConverterPlugin"
     public let jsName = "TextConverter"
     public let pluginMethods: [CAPPluginMethod] = [
-        CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "convert", returnType: CAPPluginReturnPromise)
     ]
     private let implementation = TextConverter()
 
-    @objc func echo(_ call: CAPPluginCall) {
+    @objc func convert(_ call: CAPPluginCall) {
         let value = call.getString("value") ?? ""
         call.resolve([
-            "value": implementation.echo(value)
+            "value": implementation.convert(value)
         ])
     }
 }
